@@ -1,0 +1,28 @@
+version: "3.9"
+
+networks:
+  algafood-network:
+    driver: bridge
+
+services:
+  algafood-mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    networks:
+      - algafood-network
+  algafood-api:
+    image: algafood-api
+    command: ["/wait-for-it.sh", "-t", "30", "algafood-mysql:3306", "--", "java", "-jar", "api.jar"]
+    environment:
+      DB_HOST: algafood-mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - algafood-network
+    depends_on:
+      - algafood-mysql
