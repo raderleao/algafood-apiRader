@@ -189,8 +189,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @Override
-    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest request) {
+        HttpStatus status = (HttpStatus) statusCode;
         if (body == null) {
             body = Problem.builder().timestamp(LocalDateTime.now()).title(status.getReasonPhrase() ).status(status.value()).userMessage(MSG_ERRO_GENERICA_USUARIO_FINAL).build();
         } else if (body instanceof String) {
