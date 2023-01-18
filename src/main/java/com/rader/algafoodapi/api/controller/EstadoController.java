@@ -5,6 +5,7 @@ import com.rader.algafoodapi.domain.exception.EntidadeNaoEncontradaException;
 import com.rader.algafoodapi.domain.model.Estado;
 import com.rader.algafoodapi.domain.repository.EstadoRepository;
 import com.rader.algafoodapi.domain.service.CadastroEstadoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,7 +37,7 @@ public class EstadoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Estado adicionar(@RequestBody Estado estado) {
+    public Estado adicionar(@RequestBody @Valid Estado estado) {
         return cadastroEstado.salvar(estado);
     }
 

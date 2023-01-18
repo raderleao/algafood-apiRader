@@ -1,12 +1,14 @@
 package com.rader.algafoodapi.api.controller;
 
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.rader.algafoodapi.domain.exception.CozinhaNaoEncontradaException;
-import com.rader.algafoodapi.domain.exception.EntidadeNaoEncontradaException;
 import com.rader.algafoodapi.domain.exception.NegocioException;
 import com.rader.algafoodapi.domain.model.Restaurante;
 import com.rader.algafoodapi.domain.repository.RestauranteRepository;
 import com.rader.algafoodapi.domain.service.CadastroRestauranteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +41,7 @@ public class RestauranteController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Restaurante adicionar(@RequestBody Restaurante restaurante) {
+    public Restaurante adicionar(@RequestBody @Valid Restaurante restaurante) {
         try {
             return cadastroRestaurante.salvar(restaurante);
         } catch (CozinhaNaoEncontradaException e) {
@@ -49,7 +51,7 @@ public class RestauranteController {
 
     @PutMapping("/{restauranteId}")
     public Restaurante atualizar(@PathVariable Long restauranteId,
-                                 @RequestBody Restaurante restaurante) {
+                                 @RequestBody @Valid Restaurante restaurante) {
         try {
             Restaurante restauranteAtual = cadastroRestaurante.buscarOuFalhar(restauranteId);
 
@@ -73,7 +75,14 @@ public class RestauranteController {
     }
 
     private void merge(Map<String, Object> dadosOrigem, Restaurante restauranteDestino) {
-        ObjectMapper objectMapper = new ObjectMapper();
+
+
+        ObjectMapper objectMapper = new JsonMapper().builder()
+                .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
+                .configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true)
+                .configure( DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+                .build();
+
         Restaurante restauranteOrigem = objectMapper.convertValue(dadosOrigem, Restaurante.class);
 
         dadosOrigem.forEach((nomePropriedade, valorPropriedade) -> {
@@ -82,7 +91,6 @@ public class RestauranteController {
 
             Object novoValor = ReflectionUtils.getField(field, restauranteOrigem);
 
-//			System.out.println(nomePropriedade + " = " + valorPropriedade + " = " + novoValor);
 
             ReflectionUtils.setField(field, restauranteDestino, novoValor);
         });
