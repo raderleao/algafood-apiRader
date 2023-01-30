@@ -11,7 +11,10 @@ import com.rader.algafoodapi.domain.exception.NegocioException;
 import com.rader.algafoodapi.domain.model.Pedido;
 import com.rader.algafoodapi.domain.model.Usuario;
 import com.rader.algafoodapi.domain.repository.PedidoRepository;
+import com.rader.algafoodapi.domain.repository.filter.PedidoFilter;
 import com.rader.algafoodapi.domain.service.EmissaoPedidoService;
+import com.rader.algafoodapi.infrastructure.repository.spec.PedidoSpecs;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,8 +42,8 @@ public class PedidoController {
     private PedidoInputDisassembler pedidoInputDisassembler;
 
     @GetMapping
-    public List<PedidoResumoModel> listar() {
-        List<Pedido> todosPedidos = pedidoRepository.findAll();
+    public List<PedidoResumoModel> pesquisar(PedidoFilter filtro) {
+        List<Pedido> todosPedidos = pedidoRepository.findAll(PedidoSpecs.usandoFiltro(filtro));
 
         return pedidoResumoModelAssembler.toCollectionModel(todosPedidos);
     }

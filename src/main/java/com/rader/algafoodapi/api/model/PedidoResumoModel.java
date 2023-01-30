@@ -1,10 +1,10 @@
 package com.rader.algafoodapi.api.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Setter
 @Getter
@@ -16,9 +16,7 @@ public class PedidoResumoModel {
     private BigDecimal valorTotal;
     private String status;
     private OffsetDateTime dataCriacao;
-    private OffsetDateTime dataConfirmacao;
-    private OffsetDateTime dataEntrega;
-    private OffsetDateTime dataCancelamento;
     private RestauranteResumoModel restaurante;
     private UsuarioModel cliente;
+
 }
