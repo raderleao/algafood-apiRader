@@ -7,7 +7,7 @@ import com.rader.algafoodapi.api.model.input.GrupoInput;
 import com.rader.algafoodapi.domain.model.Grupo;
 import com.rader.algafoodapi.domain.repository.GrupoRepository;
 import com.rader.algafoodapi.domain.service.CadastroGrupoService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -3,7 +3,7 @@ package com.rader.algafoodapi.infrastructure.repository;
 import java.util.Optional;
 
 import com.rader.algafoodapi.domain.repository.CustomJpaRepository;
-import jakarta.persistence.EntityManager;
+import javax.persistence.EntityManager;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 

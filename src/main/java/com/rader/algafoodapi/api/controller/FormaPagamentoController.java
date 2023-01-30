@@ -7,7 +7,7 @@ import com.rader.algafoodapi.api.model.input.FormaPagamentoInput;
 import com.rader.algafoodapi.domain.model.FormaPagamento;
 import com.rader.algafoodapi.domain.repository.FormaPagamentoRepository;
 import com.rader.algafoodapi.domain.service.CadastroFormaPagamentoService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

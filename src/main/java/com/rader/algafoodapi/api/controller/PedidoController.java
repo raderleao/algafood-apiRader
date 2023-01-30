@@ -15,7 +15,7 @@ import com.rader.algafoodapi.domain.repository.filter.PedidoFilter;
 import com.rader.algafoodapi.domain.service.EmissaoPedidoService;
 import com.rader.algafoodapi.infrastructure.repository.spec.PedidoSpecs;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

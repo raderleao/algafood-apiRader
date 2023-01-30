@@ -16,7 +16,7 @@ import com.rader.algafoodapi.domain.model.Cozinha;
 import com.rader.algafoodapi.domain.model.Restaurante;
 import com.rader.algafoodapi.domain.repository.RestauranteRepository;
 import com.rader.algafoodapi.domain.service.CadastroRestauranteService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

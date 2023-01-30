@@ -1,6 +1,6 @@
 package com.rader.algafoodapi.domain.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;

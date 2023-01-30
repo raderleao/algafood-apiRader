@@ -7,7 +7,7 @@ import com.rader.algafoodapi.api.model.input.EstadoInput;
 import com.rader.algafoodapi.domain.model.Estado;
 import com.rader.algafoodapi.domain.repository.EstadoRepository;
 import com.rader.algafoodapi.domain.service.CadastroEstadoService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

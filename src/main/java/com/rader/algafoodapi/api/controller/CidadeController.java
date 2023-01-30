@@ -9,7 +9,7 @@ import com.rader.algafoodapi.domain.exception.NegocioException;
 import com.rader.algafoodapi.domain.model.Cidade;
 import com.rader.algafoodapi.domain.repository.CidadeRepository;
 import com.rader.algafoodapi.domain.service.CadastroCidadeService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
