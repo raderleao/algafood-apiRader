@@ -4,8 +4,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
-import com.rader.algafoodapi.domain.model.Cozinha;
-import com.rader.algafoodapi.domain.repository.CozinhaRepository;
+import com.rader.algafood.domain.model.Cozinha;
+import com.rader.algafood.domain.repository.CozinhaRepository;
 import com.rader.algafoodapi.util.DatabaseCleaner;
 import com.rader.algafoodapi.util.ResourceUtils;
 import io.restassured.RestAssured;

@@ -1,9 +1,9 @@
 package com.rader.algafoodapi;
 
-import com.rader.algafoodapi.domain.model.Cozinha;
-import com.rader.algafoodapi.domain.model.Restaurante;
-import com.rader.algafoodapi.domain.repository.CozinhaRepository;
-import com.rader.algafoodapi.domain.repository.RestauranteRepository;
+import com.rader.algafood.domain.model.Cozinha;
+import com.rader.algafood.domain.model.Restaurante;
+import com.rader.algafood.domain.repository.CozinhaRepository;
+import com.rader.algafood.domain.repository.RestauranteRepository;
 import com.rader.algafoodapi.util.DatabaseCleaner;
 import com.rader.algafoodapi.util.ResourceUtils;
 import io.restassured.RestAssured;
